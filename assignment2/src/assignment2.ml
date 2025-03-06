@@ -64,9 +64,49 @@ let rec zipwith f l1 l2 =
 (* Problem 4: buckets *)
 (**********************)
 
-let buckets p l =
-  []
+let rec isInList i l = 
+  match l with
+  | [] -> false 
+  | x :: xs ->
+    if i == x then
+      true
+    else
+      isInList i xs 
+let rec listSubtraction l1 l2 =(* remove the contents of list one from l2*)
+  match l2 with
+    | [] -> [] (* if list is empty then return empty*)
+    | x :: xs -> 
+      if isInList x l1 then (* if the value is in the equivalence list, then remove it*)
+        listSubtraction l1 xs
+      else
+        x :: listSubtraction l1 xs
 
+
+
+let rec findEquiv f i l = 
+  match i, l with
+  | i, [] -> [i]  (* If the list is empty then there are no equivalents/end recursion*)
+  | i, x :: xs -> (* break into head tail*)
+    if f i x then (* if the equivalence function is true*)
+      i :: findEquiv f x xs (*add to equivalence list, check other elements in list*)
+    else
+      findEquiv f i xs (*dont add to list, check other elements in list*)
+  
+let rec recBuckets p l = 
+  match l with
+  | [] -> []
+  | x :: xs ->
+    let equiv = findEquiv p x xs in 
+    print_int_list equiv;
+    let rest = listSubtraction equiv xs in 
+    [equiv] @ recBuckets p rest
+
+let buckets p l =
+  
+  match l with
+  | [] -> []
+  | x :: xs ->
+    recBuckets p l
 (**************************)
 (* Problem 5: fib_tailrec *)
 (**************************)
