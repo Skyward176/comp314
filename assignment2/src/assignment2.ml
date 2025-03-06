@@ -97,7 +97,6 @@ let rec recBuckets p l =
   | [] -> []
   | x :: xs ->
     let equiv = findEquiv p x xs in 
-    print_int_list equiv;
     let rest = listSubtraction equiv xs in 
     [equiv] @ recBuckets p rest
 
