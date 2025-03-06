@@ -171,8 +171,9 @@ let prefixes l =
 (***********************)
 
 let powerset l =
-  []
-
+  List.fold_right (fun subsets item ->
+    item @ List.map (fun subitem -> subsets :: subitem) item
+  ) l [[]]
 (**************************)
 (* Problem 10: assoc_list *)
 (**************************)
