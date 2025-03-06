@@ -149,16 +149,23 @@ let sum_rows (rows:int list list) : int list =
 (* Problem 7: ap *)
 (*****************)
 
+let rec flatten l =
+  match l with
+  | [] -> []
+  | a :: b -> a @ flatten b
 let ap fs args =
-  []
+  flatten(List.map (fun fn -> List.map(fun arg -> fn arg) args) fs)
 
 (***********************)
 (* Problem 8: prefixes *)
 (***********************)
 
 let prefixes l =
-  []
-
+  let _, output = List.fold_left(fun (newPre, all) item -> 
+      let newPrefix = newPre @ [item] in 
+      (newPrefix, all @ [newPrefix])
+    ) ([],[]) l in
+  output
 (***********************)
 (* Problem 9: powerset *)
 (***********************)
