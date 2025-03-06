@@ -111,8 +111,23 @@ let buckets p l =
 (**************************)
 
 let fib_tailrec n =
-  0
+  (*
+  for(int i = 0; i<n; i++) {
+    temp = cur
+    cur = cur+prev
+    prev = temp
+  }
+  return cur
+  *)
+  let rec fiboHelper cur prev count stop = 
+    if count = stop then (*if we reached n then return*)
+      cur
+    else
+      let nextVal = (cur + prev) in (*otherwise then next value is cur + prev*)
+      fiboHelper nextVal cur (count+1) stop (*call recursive value with the next value and cur (prev in next recursion) and increment the count*)
+  in
 
+  fiboHelper 1 0 1 n 
 (***********************)
 (* Problem 6: sum_rows *)
 (***********************)
