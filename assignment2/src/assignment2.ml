@@ -133,7 +133,17 @@ let fib_tailrec n =
 (***********************)
 
 let sum_rows (rows:int list list) : int list =
-  []
+  (*
+  out = []
+  for row in rows:
+    sum = 0
+    for i in row:
+      sum += i
+    out.append(sum) 
+  return out
+  *)
+  List.map (fun row -> List.fold_left (fun sum x -> sum + x) 0 row) rows
+
 
 (*****************)
 (* Problem 7: ap *)
