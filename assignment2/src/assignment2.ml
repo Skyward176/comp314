@@ -46,7 +46,9 @@ let rec cond_dup l f =
 (**********************)
 
 let rec n_times (f, n, v) =
-  0
+  match n with
+    | 0 -> v (* if n is zero, return v*)
+    | _ -> n_times (f, n - 1, f(v)) (* if n is not zero, run n times with the same function, n-1, and the result of running f on v *)
 
 (**********************)
 (* Problem 3: zipwith *)
