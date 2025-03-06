@@ -177,10 +177,20 @@ let powerset l =
 (**************************)
 (* Problem 10: assoc_list *)
 (**************************)
-
 let assoc_list lst =
-  []
-
+  let unique = List.fold_left(
+    fun acc item : 'a  -> 
+      if List.fold_left (fun found x -> found || x = item) false acc then acc else item :: acc
+  )[] lst in 
+  List.map(fun value -> 
+    let count:int = List.fold_left(fun acc item -> 
+      if item = value then
+        acc + 1
+      else
+        acc 
+    ) 0 lst in 
+    (value, count)
+  ) unique 
 (********)
 (* Done *)
 (********)
