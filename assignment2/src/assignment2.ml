@@ -27,12 +27,17 @@ let print_string_list_list lst =
   List.iter print_string_list lst
 
 
+(**********************)
+(* Problem 1: cond_dup *)
+(**********************)
 let rec cond_dup l f =
   match l with
-  | [] -> []  (* Base case: if the list is empty, return an empty list *)
-  | x :: xs ->  (* Recursive case: process the head and the tail of the list *)
-      if f x then
-        x :: x :: cond_dup xs f  (* If the predicate is true for x, duplicate x *)
+  | [] -> []  (* if the list is empty, return empty list *)
+  | x :: xs ->  (* x is head of list, first element. xs is the tail aka the rest of the list*)
+      if f x then (* run the predicate function f against the argument x(the head/first el of the list)*)
+        x :: x :: cond_dup xs f  (* If the predicate is true for x, duplicate x. We're appending the list like this: 
+                                  x <- x <- cond_dup(xs)
+                                  *)
       else
         x :: cond_dup xs f  (* Otherwise, keep x as is and continue with the rest of the list *)
 

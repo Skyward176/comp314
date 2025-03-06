@@ -1,4 +1,4 @@
-OCAMLC=ocaml
+OCAMLC=ocamlc
 TARGET=test
 SRC=src/assignment2.ml
 
