@@ -55,7 +55,10 @@ let rec n_times (f, n, v) =
 (**********************)
 
 let rec zipwith f l1 l2 =
-  []
+  match l1, l2 with
+  | [], _ | _, [] -> [] (* if either list is empty, return an empty list*)
+  | x1 :: xs1, x2 :: xs2 -> f x1 x2 :: zipwith f xs1 xs2 (*if both lists have an element n, run the function on both elements then run zipwidth on the rest of them*)
+
 
 (**********************)
 (* Problem 4: buckets *)
