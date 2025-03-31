@@ -1,0 +1,13 @@
+int n;
+int sum;
+lambda f; 
+int k;
+n := 100;
+sum := 0;
+k := 0;
+f := fun x -> x + n + sum; 
+while (n > 0) {
+    sum := sum + n;
+    k := (f n) + k; 
+    n := n - 1;
+};

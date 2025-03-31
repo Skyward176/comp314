@@ -1,0 +1,14 @@
+int n;
+int f0;
+int f1;
+int k;
+int res;
+n := 5;
+f0 := 1;
+f1 := 1;
+k := 2;
+while (k <= n) {
+  if (k % 2 = 0) f0 := f0 + f1 else f1 := f0 + f1;
+  k := k + 1;
+};
+if (n % 2 = 0) res := f0 else res := f1;

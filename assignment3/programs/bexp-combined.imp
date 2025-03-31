@@ -1,0 +1,88 @@
+int x;
+int y;
+int z;
+int w;
+x := 3;
+y := 5;
+z := -3;
+w := 5;
+int res1;
+int res2;
+int res3;
+int res4;
+int res5;
+int res6;
+int res7;
+int res8;
+int res9;
+int res10;
+int res11;
+int res12;
+int res13;
+int res14;
+int res15;
+int res16;
+if (true)
+    res1 := 1
+else
+    res1 := 0;
+if (false)
+    res2 := 1
+else
+    res2 := 0;
+if (x < y)
+    res3 := 1
+else
+    res3 := 0;
+if (x > y)
+    res4 := 1
+else
+    res4 := 0;
+if (y < z)
+    res5 := 1
+else
+    res5 := 0;
+if (x = -z)
+    res6 := 1
+else
+    res6 := 0;
+if (w = x)
+    res7 := 1
+else
+    res7 := 0;
+if (~(x = x))
+    res8 := 1
+else
+    res8 := 0;
+if (true & true)
+    res9 := 1
+else
+    res9 := 0;
+if (true & false)
+    res10 := 1
+else
+    res10 := 0;
+if (false & true)
+    res11 := 1
+else
+    res11 := 0;
+if (false & false)
+    res12 := 1
+else
+    res12 := 0;
+if (true | true)
+    res13 := 1
+else
+    res13 := 0;
+if (true | false)
+    res14 := 1
+else
+    res14 := 0;
+if (false | true)
+    res15 := 1
+else
+    res15 := 0;
+if (false | false)
+    res16 := 1
+else
+    res16 := 0;

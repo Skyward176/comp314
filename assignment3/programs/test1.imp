@@ -1,0 +1,8 @@
+int X;
+int ANSWER;
+X := 4;
+ANSWER := 1;
+while (~(X = 0)) {
+  ANSWER := ANSWER * X;
+  X := X - 1
+};

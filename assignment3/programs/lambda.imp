@@ -1,0 +1,10 @@
+int a;
+int b; 
+a := 1;
+a := 0;   
+b := 10;
+lambda f;
+f := fun c -> a + b;
+b := 5;
+int x; 
+x := f b; 
